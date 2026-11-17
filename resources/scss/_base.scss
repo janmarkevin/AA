@@ -1,0 +1,6 @@
+@use 'variables' as *;
+
+// Project-level styles that don't fit Tailwind utilities.
+body {
+    transition: background-color $transition-base ease, color $transition-base ease;
+}
