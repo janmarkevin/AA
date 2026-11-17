@@ -1,0 +1,62 @@
+@use 'mixins' as *;
+
+.landing-contact-banner {
+    // Section itself is transparent — purple lives only on the 1170 wrapper.
+    background: transparent;
+    color: #fff;
+    padding: 0;
+
+    &__inner {
+        @include landing-container;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--landing-space-lg);
+        box-sizing: border-box;
+        height: 304px;
+        background: var(--landing-purple-soft);
+        border-radius: 0;
+        // Figma: 88 top/bottom → 128px content band inside 304.
+        padding: 88px 36px;
+
+        @media (max-width: #{$landing-bp-md - 1px}) {
+            height: auto;
+            padding: 2.5rem 1.25rem;
+        }
+    }
+
+    &__copy {
+        min-width: 0;
+        max-width: 40rem;
+    }
+
+    &__title {
+        margin: 0 0 0.5rem;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: #fff;
+    }
+
+    &__lead {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+        line-height: 1.55;
+        max-width: 36rem;
+    }
+
+    .landing-btn--white {
+        flex-shrink: 0;
+        min-height: 3rem;
+        padding-inline: 1.5rem;
+        border-radius: var(--landing-radius-sm);
+        color: var(--landing-ink);
+        border-color: #fff;
+    }
+}
+
+.landing-contact {
+    scroll-margin-top: var(--landing-header-height);
+}

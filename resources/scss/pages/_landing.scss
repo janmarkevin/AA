@@ -1,3 +1,13 @@
-.landing {
-    // Landing page styles
-}
+@use 'landing/tokens';
+@use 'landing/primitives';
+@use 'landing/header';
+@use 'landing/hero';
+@use 'landing/trusted';
+@use 'landing/story';
+@use 'landing/about';
+@use 'landing/team';
+@use 'landing/services';
+@use 'landing/faq';
+@use 'landing/pricing';
+@use 'landing/contact';
+@use 'landing/footer';

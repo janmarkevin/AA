@@ -1,0 +1,127 @@
+@use 'mixins' as *;
+
+.landing-team {
+    background: var(--landing-bg-mist);
+
+    &__inner {
+        @include landing-container;
+        position: relative;
+    }
+
+    .landing-section__header {
+        max-width: 962px;
+    }
+
+    &__viewport {
+        overflow: hidden;
+    }
+
+    &__track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(12rem, 1fr);
+        gap: var(--landing-space-md);
+        transition: transform $transition-base ease;
+
+        @for $i from 0 through 12 {
+            &[data-offset='#{$i}'] {
+                transform: translateX(calc(#{$i} * -13rem));
+            }
+        }
+
+        @media (min-width: $landing-bp-md) {
+            grid-auto-flow: unset;
+            grid-template-columns: repeat(4, 1fr);
+            transform: none !important;
+        }
+    }
+
+    &__card {
+        background: var(--landing-surface-muted);
+        border-radius: var(--landing-radius);
+        padding: var(--landing-space-md);
+        text-align: center;
+        border: 1px solid transparent;
+
+        &:hover .landing-team__avatar::after {
+            opacity: 1;
+        }
+    }
+
+    &__avatar {
+        position: relative;
+        width: 6.5rem;
+        height: 6.5rem;
+        margin: 0 auto var(--landing-space-sm);
+        border-radius: 50%;
+        overflow: hidden;
+        background: var(--landing-surface);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                url('/images/landing/person/overlay-hover.png') center / cover
+                no-repeat;
+            opacity: 0;
+            transition: opacity $transition-fast ease;
+            pointer-events: none;
+        }
+    }
+
+    &__name {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--landing-text);
+    }
+
+    &__role {
+        margin: 0.25rem 0 0;
+        font-size: 0.8rem;
+        color: var(--landing-text-muted);
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: var(--landing-space-md);
+
+        @media (min-width: $landing-bp-md) {
+            display: none;
+        }
+    }
+
+    &__control {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 50%;
+        border: 1px solid var(--landing-border);
+        background: var(--landing-surface);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+
+        img {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        &:hover {
+            border-color: var(--landing-purple);
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
+}

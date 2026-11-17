@@ -1,0 +1,81 @@
+// Artistry & Assistance landing brand tokens (light + dark).
+// Scoped under .landing so app chrome keeps starter-kit theme.
+
+.landing {
+    --landing-font:
+        var(--font-montserrat), 'Montserrat', ui-sans-serif, system-ui,
+        sans-serif;
+    --landing-font-price:
+        var(--font-poppins), 'Poppins', var(--font-montserrat), sans-serif;
+
+    --landing-purple: #7b4fd3;
+    --landing-purple-deep: #6a3fc0;
+    --landing-purple-soft: #9d7af1;
+    --landing-cyan: #29f0ff;
+    --landing-cyan-hover: #12dde9;
+    --landing-navy: #1b1633;
+    --landing-navy-deep: #12101f;
+    // Cyan CTA label (not previously tokenized; nearest was --landing-text #1a1528)
+    --landing-ink: #181527;
+
+    --landing-bg: #f7f6fa;
+    --landing-bg-alt: #ffffff;
+    // Team band surface (not previously tokenized; nearest was --landing-bg #f7f6fa)
+    --landing-bg-mist: #f4f6fa;
+    --landing-surface: #ffffff;
+    --landing-surface-muted: #eeeaf5;
+    --landing-text: #1a1528;
+    --landing-text-muted: #5c5670;
+    --landing-heading: #7b4fd3;
+    --landing-border: #e4e0ec;
+    --landing-card-dark: #2a2a32;
+    --landing-card-dark-text: #ffffff;
+    --landing-success: #2f9e44;
+    --landing-error: #d64545;
+    --landing-focus: #29f0ff;
+
+    --landing-footer-bg: #1b1633;
+    --landing-footer-text: #ffffff;
+    --landing-footer-muted: #b9b6c8;
+    --landing-footer-divider: #454158;
+
+    --landing-topbar-bg: #ffffff;
+    --landing-topbar-text: #7b4fd3;
+    --landing-hero-bg: #9d7af1;
+    --landing-radius: 12px;
+    --landing-radius-sm: 8px;
+    --landing-radius-btn: 51px;
+    --landing-radius-pill: 999px;
+    --landing-shadow: 0 12px 32px rgb(27 22 51 / 12%);
+    --landing-container: 1170px;
+    --landing-banner-height: 588px;
+    --landing-header-height: 98px;
+    --landing-space-xs: 0.5rem;
+    --landing-space-sm: 0.75rem;
+    --landing-space-md: 1.25rem;
+    --landing-space-lg: 2rem;
+    --landing-space-xl: 3.5rem;
+    --landing-space-2xl: 5rem;
+}
+
+.dark .landing {
+    --landing-bg: #12101f;
+    --landing-bg-alt: #1b1633;
+    --landing-surface: #1f1a35;
+    --landing-surface-muted: #2a2445;
+    --landing-text: #f4f2fa;
+    --landing-text-muted: #b9b6c8;
+    --landing-heading: #c9a4f5;
+    --landing-border: #454158;
+    --landing-card-dark: #15121f;
+    --landing-shadow: 0 12px 32px rgb(0 0 0 / 35%);
+    --landing-topbar-bg: #1b1633;
+    --landing-topbar-text: #c9a4f5;
+    --landing-hero-bg: #5a3a9e;
+}
+
+.dark .landing-header.is-scrolled {
+    background: rgb(27 22 51 / 94%);
+    border-bottom-color: rgb(201 164 245 / 18%);
+    box-shadow: 0 10px 28px rgb(0 0 0 / 35%);
+}

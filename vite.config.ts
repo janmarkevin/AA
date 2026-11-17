@@ -4,7 +4,7 @@ import babel from '@rolldown/plugin-babel';
 import tailwindcss from '@tailwindcss/vite';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
-import { bunny } from 'laravel-vite-plugin/fonts';
+import { bunny, local } from 'laravel-vite-plugin/fonts';
 import { defineConfig, lazyPlugins } from 'vite-plus';
 
 export default defineConfig({
@@ -17,8 +17,14 @@ export default defineConfig({
             ],
             refresh: true,
             fonts: [
-                bunny('Instrument Sans', {
-                    weights: [400, 500, 600],
+                // Static faces only (weights/styles inferred from filenames).
+                // Avoid variable+static mix — bold weights were rendering thin.
+                local('Montserrat', {
+                    src: 'resources/fonts/montserrat/*.ttf',
+                }),
+                // Pricing price numeral only (Medium / 500).
+                bunny('Poppins', {
+                    weights: [500],
                 }),
             ],
         }),

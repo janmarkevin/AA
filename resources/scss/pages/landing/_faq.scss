@@ -1,0 +1,80 @@
+@use 'mixins' as *;
+
+.landing-faq {
+    background: var(--landing-bg-alt);
+    // Tighten join with Services (same white surface) — avoid stacked section pads.
+    padding-top: var(--landing-space-lg);
+
+    @media (min-width: $landing-bp-lg) {
+        padding-top: var(--landing-space-xl);
+    }
+
+    &__inner {
+        @include landing-container; // 1170 via --landing-container
+    }
+
+    .landing-section__header {
+        max-width: 970px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        border: 1px solid var(--landing-border);
+        border-radius: var(--landing-radius-sm);
+        background: var(--landing-surface);
+        overflow: hidden;
+    }
+
+    &__trigger {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.15rem;
+        border: 0;
+        background: transparent;
+        color: var(--landing-text);
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: left;
+        cursor: pointer;
+
+        &[aria-expanded='true'] {
+            color: var(--landing-purple);
+            background: rgb(107 45 155 / 8%);
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        border: 1px solid var(--landing-border);
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        line-height: 1;
+        color: var(--landing-text-muted);
+    }
+
+    &__panel {
+        padding: 0 1.15rem 1.1rem;
+        color: var(--landing-text-muted);
+        font-size: 0.95rem;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+}

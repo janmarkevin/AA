@@ -1,0 +1,43 @@
+@forward '../../variables';
+@use '../../variables' as *;
+
+@mixin landing-container {
+    width: min(100% - 2rem, var(--landing-container));
+    margin-inline: auto;
+}
+
+@mixin landing-section-pad {
+    padding-block: var(--landing-space-xl);
+
+    @media (min-width: $landing-bp-lg) {
+        padding-block: var(--landing-space-2xl);
+    }
+}
+
+@mixin landing-focus-ring {
+    outline: 2px solid var(--landing-focus);
+    outline-offset: 3px;
+}
+
+@mixin landing-two-col($gap: var(--landing-space-lg)) {
+    display: grid;
+    gap: $gap;
+    align-items: center;
+
+    @media (min-width: $landing-bp-lg) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@mixin landing-card-hover {
+    transition:
+        transform $transition-base ease,
+        box-shadow $transition-base ease;
+
+    @media (prefers-reduced-motion: no-preference) {
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--landing-shadow);
+        }
+    }
+}

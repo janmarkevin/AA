@@ -1,3 +1,7 @@
-// Shared SCSS tokens. Prefer CSS variables from Tailwind theme when possible.
+// Shared SCSS tokens. Prefer CSS variables from theme when possible.
 $transition-fast: 150ms;
 $transition-base: 250ms;
+
+// Landing breakpoints (used via mixins / section partials)
+$landing-bp-md: 768px;
+$landing-bp-lg: 1024px;

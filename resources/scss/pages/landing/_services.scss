@@ -1,0 +1,53 @@
+@use 'mixins' as *;
+
+.landing-services {
+    background: var(--landing-bg-alt);
+    // Tighten join with FAQ (same white surface).
+    padding-bottom: var(--landing-space-lg);
+
+    @media (min-width: $landing-bp-lg) {
+        padding-bottom: var(--landing-space-xl);
+    }
+
+    &__inner {
+        @include landing-container;
+    }
+
+    &__card {
+        background: var(--landing-card-dark);
+        color: var(--landing-card-dark-text);
+        border-radius: var(--landing-radius);
+        padding: var(--landing-space-lg) var(--landing-space-md);
+        text-align: center;
+        border: 1px solid transparent;
+        @include landing-card-hover;
+    }
+
+    &__icon {
+        width: 3.25rem;
+        height: 3.25rem;
+        margin: 0 auto var(--landing-space-md);
+        object-fit: contain;
+    }
+
+    &__title {
+        margin: 0 0 var(--landing-space-sm);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    &__body {
+        margin: 0 0 var(--landing-space-md);
+        color: rgb(255 255 255 / 75%);
+        font-size: 0.875rem;
+        min-height: 3.5rem;
+    }
+
+    .landing-btn--cyan {
+        width: 171px;
+        max-width: 100%;
+        color: var(--landing-ink);
+    }
+}

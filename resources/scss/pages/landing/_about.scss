@@ -1,0 +1,56 @@
+@use 'mixins' as *;
+
+.landing-about {
+    scroll-margin-top: var(--landing-header-height);
+
+    &__inner {
+        @include landing-container;
+        @include landing-two-col(var(--landing-space-xl));
+        align-items: center;
+        // Top is tight to Trusted By; bottom keeps separation before Team.
+        padding-block: var(--landing-space-md) var(--landing-space-lg);
+
+        @media (min-width: $landing-bp-lg) {
+            padding-block: var(--landing-space-lg) var(--landing-space-xl);
+        }
+    }
+
+    &__visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 365.7px;
+            height: 351.01px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__copy {
+        position: relative;
+        z-index: 1;
+        max-width: 34rem;
+    }
+
+    &__title {
+        margin: 0 0 var(--landing-space-md);
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 700;
+        color: var(--landing-text);
+    }
+
+    &__body {
+        margin: 0 0 var(--landing-space-lg);
+        color: var(--landing-text-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+}

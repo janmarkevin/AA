@@ -1,0 +1,50 @@
+@use 'mixins' as *;
+
+.landing-trusted {
+    scroll-margin-top: var(--landing-header-height);
+    background: var(--landing-bg-alt);
+    padding-top: 50px;
+    padding-bottom: 96px;
+
+    &__inner {
+        @include landing-container;
+    }
+
+    &__label {
+        margin: 0 0 var(--landing-space-md);
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--landing-heading);
+        letter-spacing: normal;
+        text-transform: none;
+    }
+
+    &__logos {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem 2.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__logo {
+        opacity: 0.75;
+        filter: grayscale(1);
+        transition: opacity $transition-fast ease;
+
+        img {
+            height: 2.25rem;
+            width: auto;
+            object-fit: contain;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

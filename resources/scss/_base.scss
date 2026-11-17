@@ -2,5 +2,8 @@
 
 // Project-level styles that don't fit Tailwind utilities.
 body {
+    font-family:
+        var(--font-montserrat), 'Montserrat', ui-sans-serif, system-ui,
+        sans-serif;
     transition: background-color $transition-base ease, color $transition-base ease;
 }
