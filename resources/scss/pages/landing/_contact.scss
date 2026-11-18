@@ -20,9 +20,16 @@
         // Figma: 88 top/bottom → 128px content band inside 304.
         padding: 88px 36px;
 
-        @media (max-width: #{$landing-bp-md - 1px}) {
+        @media (max-width: #{$landing-bp-lg - 1px}) {
             height: auto;
-            padding: 2.5rem 1.25rem;
+            padding: 3rem 1.75rem;
+        }
+
+        @media (max-width: #{$landing-bp-md - 1px}) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2.25rem 1.25rem;
+            gap: 1.25rem;
         }
     }
 
@@ -54,6 +61,10 @@
         border-radius: var(--landing-radius-sm);
         color: var(--landing-ink);
         border-color: #fff;
+
+        @media (max-width: #{$landing-bp-md - 1px}) {
+            width: 100%;
+        }
     }
 }
 

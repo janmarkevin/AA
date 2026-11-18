@@ -40,14 +40,28 @@
 
     &__body {
         margin: 0 0 var(--landing-space-md);
-        color: rgb(255 255 255 / 75%);
+        color: color-mix(in srgb, var(--landing-card-dark-text) 75%, transparent);
         font-size: 0.875rem;
         min-height: 3.5rem;
+
+        @media (max-width: #{$landing-bp-md - 1px}) {
+            min-height: 0;
+        }
     }
 
     .landing-btn--cyan {
         width: 171px;
         max-width: 100%;
-        color: var(--landing-ink);
+        color: var(--landing-on-cyan);
+    }
+
+    @media (max-width: #{$landing-bp-md - 1px}) {
+        &__card {
+            padding: var(--landing-space-md);
+        }
+
+        .landing-btn--cyan {
+            width: 100%;
+        }
     }
 }

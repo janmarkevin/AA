@@ -10,6 +10,10 @@
         display: grid;
         gap: var(--landing-space-lg);
 
+        @media (min-width: $landing-bp-md) and (max-width: #{$landing-bp-lg - 1px}) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         @media (min-width: $landing-bp-lg) {
             grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
         }
@@ -138,5 +142,17 @@
         text-align: center;
         color: var(--landing-footer-muted);
         font-size: 0.85rem;
+    }
+
+    @media (max-width: #{$landing-bp-md - 1px}) {
+        padding-block: var(--landing-space-lg);
+
+        &__desc {
+            max-width: none;
+        }
+
+        &__newsletter-form {
+            max-width: none;
+        }
     }
 }

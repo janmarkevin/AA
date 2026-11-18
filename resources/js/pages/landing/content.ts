@@ -243,7 +243,7 @@ export const assets = {
     heroBackground: img('hero-laptop.webp'),
     heroVisual: img('about-illustration.webp'),
     aboutIllustration: img('about-us.webp'),
-    aboutOverlay: img('mask-group-4.png'),
+    aboutOverlay: img('mask-group.png'),
     sliderPrev: img('icons/slider-prev.png'),
     sliderNext: img('icons/slider-next.png'),
 } as const;

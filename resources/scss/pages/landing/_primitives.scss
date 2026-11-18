@@ -117,13 +117,13 @@ html:has(.landing) {
 
 .landing-btn--cyan {
     background: var(--landing-cyan);
-    color: var(--landing-ink);
+    color: var(--landing-on-cyan);
     border-color: var(--landing-cyan);
 
     &:hover:not(:disabled) {
         background: var(--landing-cyan-hover);
         border-color: var(--landing-cyan-hover);
-        color: var(--landing-ink);
+        color: var(--landing-on-cyan);
     }
 }
 
@@ -166,6 +166,7 @@ html:has(.landing) {
 
     &:hover:not(:disabled) {
         background: #f3eefb;
+        color: var(--landing-purple-deep);
     }
 }
 

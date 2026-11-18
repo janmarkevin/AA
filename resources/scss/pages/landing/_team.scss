@@ -29,7 +29,13 @@
             }
         }
 
-        @media (min-width: $landing-bp-md) {
+        @media (min-width: $landing-bp-md) and (max-width: #{$landing-bp-lg - 1px}) {
+            grid-auto-flow: unset;
+            grid-template-columns: repeat(2, 1fr);
+            transform: none !important;
+        }
+
+        @media (min-width: $landing-bp-lg) {
             grid-auto-flow: unset;
             grid-template-columns: repeat(4, 1fr);
             transform: none !important;
@@ -97,6 +103,17 @@
 
         @media (min-width: $landing-bp-md) {
             display: none;
+        }
+    }
+
+    @media (max-width: #{$landing-bp-md - 1px}) {
+        &__card {
+            padding: 1rem 0.85rem;
+        }
+
+        &__avatar {
+            width: 5.5rem;
+            height: 5.5rem;
         }
     }
 

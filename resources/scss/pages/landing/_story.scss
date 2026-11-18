@@ -1,44 +1,81 @@
-// Shared band: About Us → Meet the Team, with Mask group (4) watermark.
+// About → Team: mask straddles the junction (half About, half Team).
+@use 'mixins' as *;
+
 .landing-story {
     position: relative;
-    overflow: hidden;
+    clip-path: inset(0);
     background: var(--landing-bg-alt);
 
+    // Zero-height marker between About and Team.
+    &__anchor {
+        position: relative;
+        height: 0;
+    }
+
+    // 1440×557 @ 50% — right-aligned, half in About / half in Team.
     &__overlay {
         position: absolute;
         top: 0;
-        left: 0;
         right: 0;
-        z-index: 0;
+        left: auto;
+        z-index: 1;
+        width: min(100%, 1440px);
         height: 557px;
+        transform: translateY(-50%);
         pointer-events: none;
+        overflow: hidden;
 
         img {
+            display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            opacity: 0.08;
-            filter: invert(1);
-            mix-blend-mode: multiply;
+            max-width: none;
+            object-fit: contain;
+            object-position: right center;
+            opacity: 0.5;
         }
     }
 
-    .landing-about,
-    .landing-team {
-        position: relative;
-        z-index: 1;
+    @media (prefers-reduced-motion: no-preference) {
+        &__overlay img {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: auto;
+            width: min(100%, 1440px);
+            height: 557px;
+            transform: none;
+        }
+    }
+
+    @media (max-width: #{$landing-bp-md - 1px}) {
+        &__overlay {
+            height: auto;
+            aspect-ratio: 1440 / 557;
+            max-height: 557px;
+        }
     }
 
     .landing-about {
+        position: relative;
         background: transparent;
+    }
+
+    .landing-team {
+        position: relative;
+        background: var(--landing-bg-mist);
+    }
+
+    // Keep copy/controls above the mask.
+    .landing-about__inner,
+    .landing-team__inner {
+        position: relative;
+        z-index: 2;
     }
 }
 
 .dark .landing-story {
     &__overlay img {
-        opacity: 0.22;
-        filter: none;
-        mix-blend-mode: screen;
+        opacity: 0.5;
     }
 }

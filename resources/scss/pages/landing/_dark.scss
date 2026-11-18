@@ -1,0 +1,95 @@
+@use 'mixins' as *;
+
+// Section-level dark polish that cannot live as pure token swaps.
+
+.dark .landing-btn--white {
+    &:hover:not(:disabled) {
+        background: #ebe4f8;
+    }
+}
+
+.dark .landing-btn--primary {
+    color: #fff;
+}
+
+.dark .landing-header.is-scrolled {
+    background: rgb(22 18 42 / 94%);
+    border-bottom-color: rgb(210 182 255 / 16%);
+    box-shadow: 0 10px 28px rgb(0 0 0 / 4%);
+}
+
+.dark .landing-header__mobile {
+    background: rgb(42 28 88 / 96%);
+}
+
+.dark .landing-header.is-scrolled .landing-header__mobile {
+    background: rgb(28 18 58 / 98%);
+}
+
+.dark .landing-topbar {
+    &__social-link {
+        background: var(--landing-purple);
+        color: #fff;
+    }
+}
+
+.dark .landing-faq {
+    &__trigger[aria-expanded='true'] {
+        background: color-mix(in srgb, var(--landing-purple) 16%, transparent);
+    }
+}
+
+.dark .landing-services {
+    &__card {
+        border-color: rgb(210 182 255 / 10%);
+    }
+
+    &__body {
+        color: color-mix(in srgb, var(--landing-card-dark-text) 72%, transparent);
+    }
+}
+
+.dark .landing-trusted {
+    &__logo {
+        filter: grayscale(1) invert(1) brightness(1.35);
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 0.95;
+        }
+    }
+}
+
+.dark .landing-team {
+    &__card {
+        border-color: rgb(210 182 255 / 8%);
+    }
+
+    &__control img {
+        filter: invert(1) brightness(1.15);
+    }
+}
+
+.dark .landing-pricing {
+    &__divider {
+        background: rgb(243 240 250 / 14%);
+    }
+
+    &__card--featured .landing-pricing__divider {
+        background: rgb(255 255 255 / 55%);
+    }
+
+    &__card--accent .landing-pricing__divider {
+        background: rgb(24 21 39 / 22%);
+    }
+}
+
+.dark .landing-contact-banner {
+    &__inner {
+        background: linear-gradient(
+            120deg,
+            var(--landing-purple-soft) 0%,
+            color-mix(in srgb, var(--landing-purple) 70%, #2a1848) 100%
+        );
+    }
+}

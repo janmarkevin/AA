@@ -51,7 +51,7 @@
 
         &[aria-expanded='true'] {
             color: var(--landing-purple);
-            background: rgb(107 45 155 / 8%);
+            background: color-mix(in srgb, var(--landing-purple) 10%, transparent);
         }
     }
 
@@ -75,6 +75,19 @@
 
         &[hidden] {
             display: none;
+        }
+    }
+
+    @media (max-width: #{$landing-bp-md - 1px}) {
+        &__trigger {
+            padding: 0.95rem 1rem;
+            font-size: 0.95rem;
+            min-height: 3rem;
+        }
+
+        &__panel {
+            padding: 0 1rem 1rem;
+            font-size: 0.9rem;
         }
     }
 }

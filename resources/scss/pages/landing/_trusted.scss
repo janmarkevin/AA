@@ -47,4 +47,27 @@
             opacity: 1;
         }
     }
+
+    @media (max-width: #{$landing-bp-md - 1px}) {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+
+        &__label {
+            font-size: clamp(1.35rem, 5vw, 1.75rem);
+            margin-bottom: 1rem;
+        }
+
+        &__logos {
+            gap: 1.1rem 1.5rem;
+        }
+
+        &__logo img {
+            height: 1.75rem;
+        }
+    }
+
+    @media (min-width: $landing-bp-md) and (max-width: #{$landing-bp-lg - 1px}) {
+        padding-top: 2.5rem;
+        padding-bottom: 4rem;
+    }
 }

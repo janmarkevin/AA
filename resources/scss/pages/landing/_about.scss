@@ -5,10 +5,16 @@
 
     &__inner {
         @include landing-container;
-        @include landing-two-col(var(--landing-space-xl));
+        display: grid;
+        gap: var(--landing-space-lg);
         align-items: center;
         // Top is tight to Trusted By; bottom keeps separation before Team.
         padding-block: var(--landing-space-md) var(--landing-space-lg);
+
+        @media (min-width: $landing-bp-md) {
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            gap: var(--landing-space-xl);
+        }
 
         @media (min-width: $landing-bp-lg) {
             padding-block: var(--landing-space-lg) var(--landing-space-xl);
@@ -21,8 +27,9 @@
         align-items: center;
 
         img {
-            width: 365.7px;
-            height: 351.01px;
+            width: min(100%, 365.7px);
+            height: auto;
+            aspect-ratio: 365.7 / 351.01;
             max-width: 100%;
             object-fit: contain;
         }
@@ -32,6 +39,11 @@
         position: relative;
         z-index: 1;
         max-width: 34rem;
+        margin-inline: auto;
+
+        @media (min-width: $landing-bp-md) {
+            margin-inline: 0;
+        }
     }
 
     &__title {
@@ -39,6 +51,11 @@
         font-size: clamp(1.75rem, 3vw, 2.25rem);
         font-weight: 700;
         color: var(--landing-text);
+        text-align: center;
+
+        @media (min-width: $landing-bp-md) {
+            text-align: left;
+        }
     }
 
     &__body {
@@ -46,11 +63,27 @@
         color: var(--landing-text-muted);
         font-size: 0.95rem;
         line-height: 1.7;
+        text-align: center;
+
+        @media (min-width: $landing-bp-md) {
+            text-align: left;
+        }
     }
 
     &__actions {
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
+        justify-content: center;
+
+        @media (min-width: $landing-bp-md) {
+            justify-content: flex-start;
+        }
+
+        @media (max-width: #{$landing-bp-md - 1px}) {
+            .landing-btn {
+                width: 100%;
+            }
+        }
     }
 }

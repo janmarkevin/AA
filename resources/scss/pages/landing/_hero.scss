@@ -71,9 +71,9 @@
     }
 
     &__title {
-        margin: 0 0 0.5rem;
-        font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-        font-weight: 800;
+        margin: 0 0 0.9375rem;
+        font-size: clamp(1.75rem, 3.2vw, 3.125rem);
+        font-weight: 700;
         line-height: 1.08;
         color: var(--landing-cyan);
 
@@ -84,16 +84,16 @@
 
     &__subtitle {
         margin: 0 0 0.75rem;
-        font-size: clamp(1rem, 1.8vw, 1.25rem);
-        font-weight: 700;
+        font-size: clamp(1rem, 1.8vw, 1.5rem);
+        font-weight: 600;
         line-height: 1.3;
         color: #fff;
     }
 
     &__body {
-        margin: 0 0 1rem;
+        margin: 0 0 2.5rem;
         color: rgb(255 255 255 / 92%);
-        font-size: 0.9rem;
+        font-size: 1rem;
         line-height: 1.55;
         max-width: 32rem;
     }
@@ -101,6 +101,12 @@
     .landing-btn--outline {
         width: 370px;
         max-width: 100%;
+
+        // Full-width CTA on tablet + phone for easier tap targets.
+        @media (max-width: #{$landing-bp-lg - 1px}) {
+            width: 100%;
+            min-height: 3rem;
+        }
     }
 
     &__visual {
@@ -135,7 +141,9 @@
     .landing-hero {
         height: auto;
         min-height: calc(var(--landing-banner-height) - var(--landing-header-height));
-        margin-top: 0;
-        padding-top: 1rem;
+        // Keep underlap so the transparent sticky header sits on purple (readable white nav).
+        margin-top: calc(var(--landing-header-height) * -1);
+        padding-top: calc(var(--landing-header-height) + 0.75rem);
+        padding-bottom: 1.5rem;
     }
 }

@@ -1,5 +1,6 @@
 // Artistry & Assistance landing brand tokens (light + dark).
 // Scoped under .landing so app chrome keeps starter-kit theme.
+@use 'mixins' as *;
 
 .landing {
     --landing-font:
@@ -15,12 +16,12 @@
     --landing-cyan-hover: #12dde9;
     --landing-navy: #1b1633;
     --landing-navy-deep: #12101f;
-    // Cyan CTA label (not previously tokenized; nearest was --landing-text #1a1528)
+    // Dark label on bright cyan CTAs (stays dark in both themes)
     --landing-ink: #181527;
+    --landing-on-cyan: #181527;
 
     --landing-bg: #f7f6fa;
     --landing-bg-alt: #ffffff;
-    // Team band surface (not previously tokenized; nearest was --landing-bg #f7f6fa)
     --landing-bg-mist: #f4f6fa;
     --landing-surface: #ffffff;
     --landing-surface-muted: #eeeaf5;
@@ -58,24 +59,57 @@
     --landing-space-2xl: 5rem;
 }
 
+// Night theme keeps the purple family (not flat OLED black) so brand stays continuous.
 .dark .landing {
-    --landing-bg: #12101f;
-    --landing-bg-alt: #1b1633;
-    --landing-surface: #1f1a35;
-    --landing-surface-muted: #2a2445;
-    --landing-text: #f4f2fa;
-    --landing-text-muted: #b9b6c8;
-    --landing-heading: #c9a4f5;
-    --landing-border: #454158;
-    --landing-card-dark: #15121f;
-    --landing-shadow: 0 12px 32px rgb(0 0 0 / 35%);
-    --landing-topbar-bg: #1b1633;
-    --landing-topbar-text: #c9a4f5;
-    --landing-hero-bg: #5a3a9e;
+    --landing-purple: #a78bfa;
+    --landing-purple-deep: #8b6cf0;
+    --landing-purple-soft: #7c5cbf;
+    --landing-cyan: #3df3ff;
+    --landing-cyan-hover: #22e6f5;
+    --landing-navy: #1b1633;
+    --landing-navy-deep: #0c0a14;
+    --landing-ink: #181527;
+    --landing-on-cyan: #181527;
+
+    --landing-bg: #0f0c1a;
+    --landing-bg-alt: #16122a;
+    --landing-bg-mist: #1a1530;
+    --landing-surface: #1e1834;
+    --landing-surface-muted: #2a2348;
+    --landing-text: #f3f0fa;
+    --landing-text-muted: #b8b1cc;
+    --landing-heading: #d2b6ff;
+    --landing-border: #3d3658;
+    --landing-card-dark: #12101c;
+    --landing-card-dark-text: #f3f0fa;
+    --landing-success: #3dba5c;
+    --landing-focus: #3df3ff;
+
+    --landing-footer-bg: #0c0a14;
+    --landing-footer-text: #f3f0fa;
+    --landing-footer-muted: #a9a2bf;
+    --landing-footer-divider: #2f2a45;
+
+    --landing-topbar-bg: #16122a;
+    --landing-topbar-text: #d2b6ff;
+    --landing-hero-bg: #4a2f8a;
+    --landing-shadow: 0 14px 36px rgb(0 0 0 / 45%);
 }
 
-.dark .landing-header.is-scrolled {
-    background: rgb(27 22 51 / 94%);
-    border-bottom-color: rgb(201 164 245 / 18%);
-    box-shadow: 0 10px 28px rgb(0 0 0 / 35%);
+// Compact tokens for phone / small tablet
+@media (max-width: #{$landing-bp-md - 1px}) {
+    .landing {
+        --landing-header-height: 72px;
+        --landing-banner-height: 520px;
+        --landing-space-xl: 2.5rem;
+        --landing-space-2xl: 3.25rem;
+    }
+}
+
+@media (min-width: $landing-bp-md) and (max-width: #{$landing-bp-lg - 1px}) {
+    .landing {
+        --landing-header-height: 84px;
+        --landing-space-xl: 3rem;
+        --landing-space-2xl: 4rem;
+    }
 }

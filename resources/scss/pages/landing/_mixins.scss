@@ -4,6 +4,10 @@
 @mixin landing-container {
     width: min(100% - 2rem, var(--landing-container));
     margin-inline: auto;
+
+    @media (max-width: #{$landing-bp-md - 1px}) {
+        width: min(100% - 1.5rem, var(--landing-container));
+    }
 }
 
 @mixin landing-section-pad {
